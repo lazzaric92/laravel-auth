@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 50);
+            $table->string('dev', 255);
+            $table->text('description');
+            $table->string('languages', 255);
+            $table->date('date');
+            $table->text('github');
+            $table->text('image')->nullable(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

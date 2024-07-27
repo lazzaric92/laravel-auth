@@ -7,7 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>
+        @yield('page-title', 'Portfolio')
+    </title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -30,11 +32,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        @if (Auth::check())
-                            <li class="nav-item mx-2">
-                                <a href="{{route('admin.projects.index')}}" class="nav-link">Projects</a>
-                            </li>
-                        @endif
+                        <li class="nav-item mx-2">
+                            <a href="{{route('admin.projects.index')}}" class="nav-link">Projects</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
