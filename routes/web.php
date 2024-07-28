@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------

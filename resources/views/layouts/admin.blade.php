@@ -11,6 +11,7 @@
         @yield('page-title', 'Portfolio')
     </title>
 
+    @yield('head-cdn')
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -34,6 +35,12 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item mx-2">
                             <a href="{{route('admin.projects.index')}}" class="nav-link">Projects</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a href="" class="nav-link">Add a project</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a href="" class="nav-link">Bin</a>
                         </li>
                     </ul>
 
@@ -80,5 +87,6 @@
             @yield('content')
         </main>
     </div>
+    @yield('custom-script')
 </body>
 </html>

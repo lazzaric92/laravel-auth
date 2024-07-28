@@ -13,6 +13,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">Languages</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +23,11 @@
                         <td> {{$project->title}} </td>
                         <td> {{$project->languages}} </td>
                         <td> {{$project->date}} </td>
+                        <td>
+                            <a href=" {{route('admin.projects.show', $project)}} " class="btn btn-info btn-sm ms-1">Info</a>
+                            <a href="" class="btn btn-warning btn-sm ms-1">Edit</a>
+                            <a href="" class="btn btn-secondary btn-sm ms-1">Delete</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
