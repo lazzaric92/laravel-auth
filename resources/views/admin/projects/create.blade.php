@@ -1,13 +1,19 @@
 @extends('layouts.form')
 
+{{-- <-- Page title --}}
 @section('page-title', 'Add project')
 
+{{-- <-- Action --}}
 @section('form-action', )
 
 @endsection
 
+{{-- <-- Classes --}}
+@section('form-classes', 'col-6 create-form')
+
 @section('content-title', 'Add project')
 
+{{-- <-- Content --}}
 @section('form-content')
     <div class="mb-3">
         <label for="title" class="form-label">Title</label>
@@ -46,4 +52,8 @@
     <div class="mb-3">
         <button type="submit" class="btn btn-primary">Add project</button>
     </div>
+@endsection
+
+@section('custom-script')
+    @vite('resources/js/confirm-create.js')
 @endsection
