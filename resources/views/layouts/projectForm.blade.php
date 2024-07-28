@@ -3,7 +3,17 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <h1 class="text-center mb-4 p-3">@yield('content-title')</h1>
+            <h1 class="text-center mb-2 p-3">@yield('content-title')</h1>
+
+            @if ($errors->any())
+                <div class="alert alert-warning mb-3">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action=" @yield('form-action') " class="@yield('form-classes', 'col-6')" method="POST">
                 @csrf
                 @yield('form-method')
