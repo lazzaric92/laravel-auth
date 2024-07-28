@@ -30,11 +30,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        @if (Auth::check())
-                            <li class="nav-item mx-2">
-                                <a href="{{route('admin.projects.index')}}" class="nav-link">Projects</a>
-                            </li>
-                        @endif
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->

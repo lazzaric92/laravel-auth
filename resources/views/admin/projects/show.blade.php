@@ -11,7 +11,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <article class="col-12">
+            <article class="col-12 mb-5">
                 <div class="row justify-content-center">
                     <div class="col-10 mb-4">
                         <h2 class="text-center mb-3 p-3"> #{{$project->id}}: {{$project->title}} </h2>
@@ -21,7 +21,7 @@
                         </div>
                         <p> {{$project->description}} </p>
                         {{-- (if devs > 1)
-                            nome => url
+                            name => url
                         --}}
                     </div>
                     <div class="col-8 text-center">
@@ -31,6 +31,11 @@
                     </div>
                 </div>
             </article>
+            <div class="col-12 d-flex justify-content-between">
+                <a href=" {{route('admin.projects.index')}} " class="btn btn-info">Back to index</a>
+                <a href="" class="btn btn-warning">Edit</a>
+                <a href="" class="btn btn-secondary">Delete</a>
+            </div>
         </div>
     </div>
 @endsection
