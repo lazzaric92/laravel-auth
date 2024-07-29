@@ -7,7 +7,7 @@
         <h1 class="text-center fw-bold mb-4">Recycle Bin</h1>
 
         @if (session('message'))
-            <div class="alert alert-danger">
+            <div class="alert alert-warning">
                 {{session('message')}}
             </div>
         @endif
@@ -36,7 +36,11 @@
                             @endif
                         </td>
                         <td>
-                            <a href="" class="btn btn-primary btn-sm ms-1">Restore</a>
+                            <form action="{{route('admin.projects.restore', $project->id)}}" method="POST" class="d-inline-block">
+                                @csrf
+                                @method('PATCH')
+                                <input type="submit" class="btn btn-primary btn-sm ms-1" value="Restore">
+                            </form>
                             <form action="" method="POST" class="d-inline-block delete-form" data-project-title="{{$project->title}}">
                                 @csrf
                                 @method('DELETE')

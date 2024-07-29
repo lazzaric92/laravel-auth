@@ -27,5 +27,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware('auth')->name('admin.')->prefix('/admin/')->group(function(){
     Route::get('projects/deleted', [AdminProjectController::class, 'softDeleted'])->name('projects.deleted');
     Route::resource('projects', AdminProjectController::class);
+    Route::patch('projects/{id}/restore', [AdminProjectController::class, 'restore'])->name('projects.restore');
     }
 );
