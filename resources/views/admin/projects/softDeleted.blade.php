@@ -41,7 +41,7 @@
                                 @method('PATCH')
                                 <input type="submit" class="btn btn-primary btn-sm ms-1" value="Restore">
                             </form>
-                            <form action="" method="POST" class="d-inline-block delete-form" data-project-title="{{$project->title}}">
+                            <form action="{{route('admin.projects.hardDelete', $project->id)}}" method="POST" class="d-inline-block delete-form" data-project-title="{{$project->title}}">
                                 @csrf
                                 @method('DELETE')
                                 <input type="submit" class="btn btn-secondary btn-sm ms-1" value="Delete">

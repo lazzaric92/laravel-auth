@@ -69,7 +69,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Soft delete the specified resource.
      */
     public function destroy(Project $project)
     {
@@ -78,7 +78,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display the list of soft deleted resources
+     * Display the list of soft deleted resources.
      */
     public function softDeleted()
     {
@@ -87,12 +87,22 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display the list of soft deleted resources
+     * Restore a soft deleted resource.
      */
     public function restore(string $id)
     {
         $project = Project::onlyTrashed()->findOrFail($id);
         $project->restore();
         return redirect()->route('admin.projects.deleted', compact('id'))->with('message', $project['title'] . 'has been restored');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function hardDelete(string $id)
+    {
+        $project = Project::onlyTrashed()->findOrFail($id);
+        $project->forceDelete();
+        return redirect()->route('admin.projects.deleted', compact('id'))->with('message', $project['title'] . 'has been permanently deleted');
     }
 }

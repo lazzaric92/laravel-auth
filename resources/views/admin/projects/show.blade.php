@@ -45,7 +45,11 @@
             <div class="col-12 d-flex justify-content-between">
                 <a href="{{route('admin.projects.index')}}" class="btn btn-info">Back to index</a>
                 <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-warning">Edit</a>
-                <a href="" class="btn btn-secondary">Delete</a>
+                <form action="{{route('admin.projects.destroy', $project)}}" method="POST" class="d-inline-block delete-form" data-project-title="{{$project->title}}">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" class="btn btn-secondary ms-1" value="Delete">
+                </form>
             </div>
         </div>
     </div>
