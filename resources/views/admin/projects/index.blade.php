@@ -6,6 +6,12 @@
     <div class="container">
         <h1 class="text-center fw-bold mb-4">Projects</h1>
 
+        @if (session('message'))
+            <div class="alert alert-danger">
+                {{session('message')}}
+            </div>
+        @endif
+
         <table class="table table-hover table-striped text-center">
             <thead class="table-primary">
                 <tr>
@@ -32,11 +38,19 @@
                         <td>
                             <a href=" {{route('admin.projects.show', $project)}} " class="btn btn-info btn-sm ms-1">Info</a>
                             <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-warning btn-sm ms-1">Edit</a>
-                            <a href="" class="btn btn-secondary btn-sm ms-1">Delete</a>
+                            <form action="{{route('admin.projects.destroy', $project)}}" method="POST" class="d-inline-block delete-form" data-project-title="{{$project->title}}">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" class="btn btn-secondary btn-sm ms-1" value="Delete">
+                            </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+@endsection
+
+@section('custom-script')
+    @vite('resources/js/projects/confirm-delete.js')
 @endsection

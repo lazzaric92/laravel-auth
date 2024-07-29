@@ -14,6 +14,11 @@
             <article class="col-12 mb-5">
                 <div class="row justify-content-center">
                     <div class="col-10 mb-4">
+                        @if (session('message'))
+                            <div class="alert alert-success">
+                                {{session('message')}}
+                            </div>
+                        @endif
                         <h2 class="text-center mb-3 p-3"> #{{$project->id}}: {{$project->title}} </h2>
                         <div class="mb-3 d-flex justify-content-between align-items-center">
                             <p class="mb-0"> {{$project->date}} </p>
@@ -30,7 +35,7 @@
                         @endif
                         </p>
                     </div>
-                    @if (!($project->image))
+                    @if ($project->image)
                         <div class="col-10 text-center mb-4 p-3">
                             <img src=" {{$project->image}} " alt=" {{$project->title}} screen">
                         </div>
@@ -44,4 +49,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('custom-script')
+    @vite('resources/js/projects/confirm-delete.js')
 @endsection

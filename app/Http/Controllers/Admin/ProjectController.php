@@ -65,14 +65,15 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
         $project->update($data);
-        return redirect()->route('admin.projects.show', $project);
+        return redirect()->route('admin.projects.show', $project)->with('message', $project->title.' was updated succesfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('admin.projects.index')->with('message', $project['title'] . 'has been deleted');
     }
 }
