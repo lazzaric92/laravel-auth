@@ -3,9 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <h1 class="text-center mb-2 p-3">@yield('content-title')</h1>
+            <h1 class="text-center mb-2 p-3">@yield('page-title')</h1>
 
-            <form action=" @yield('form-action') " class="@yield('form-classes', 'col-6')" method="POST">
+            <form action=" @yield('form-action') " class="@yield('form-classes', 'col-6')" method="POST" data-project-title="{{$project->title}}">
                 @csrf
                 @yield('form-method')
 
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <textarea class="form-control" name="description" id="description" cols="80" rows="10" placeholder="Write your project description" value="{{old('description', $project->description??null)}}"></textarea>
+                    <textarea class="form-control" name="description" id="description" cols="80" rows="10" placeholder="Write your project description">{{old('description', $project->description??null)}}</textarea>
                     @error('description')
                         <p class="text-danger">{{$message}}</p>
                     @enderror

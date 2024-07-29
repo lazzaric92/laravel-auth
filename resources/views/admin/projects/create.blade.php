@@ -1,9 +1,7 @@
 @extends('layouts.projectForm')
 
-{{-- <--Titles --}}
+{{-- <--Title --}}
 @section('page-title', 'Add project')
-
-@section('content-title', 'Add project')
 
 {{-- <-- Form --}}
 @section('form-action', )
@@ -18,5 +16,5 @@
 
 {{-- <-- Script --}}
 @section('custom-script')
-    @vite('resources/js/confirm-create.js')
+    @vite('resources/js/projects/confirm-create.js')
 @endsection
