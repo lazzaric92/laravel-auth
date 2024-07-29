@@ -23,12 +23,20 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:projects|min:3|max:50',
-            'devs' => 'required|min:3',
-            'description' => 'required|min:3',
+            'add_devs' => 'nullable|min:3',
+            'description' => 'required|min:20',
             'languages' => 'required|min:3|max:255',
             'date' => 'required|date',
             'github' => 'required|url',
             'image' => 'nullable|url'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'A title is required',
+            'description.min' => 'Brevity is the Soul of Wit, but this project needs a description',
         ];
     }
 }

@@ -24,15 +24,23 @@
                             name => url
                         --}}
                     </div>
-                    <div class="col-8 text-center">
-                        @if ($project->image != 'NULL')
+                    @if ($project->image != 'NULL')
+                        <div class="col-10 text-center mb-4 p-3">
                             <img src=" {{$project->image}} " alt=" {{$project->title}} screen">
+                        </div>
+                    @endif
+                    <div class="col-10 mb-4">
+                        <p>Dev/s: <br>
+                        {{$project->author}} <br>
+                        @if ($project->add_devs != 'NULL')
+                            {{$project->add_devs}}
                         @endif
+                        </p>
                     </div>
                 </div>
             </article>
             <div class="col-12 d-flex justify-content-between">
-                <a href=" {{route('admin.projects.index')}} " class="btn btn-info">Back to index</a>
+                <a href="{{route('admin.projects.index')}}" class="btn btn-info">Back to index</a>
                 <a href="" class="btn btn-warning">Edit</a>
                 <a href="" class="btn btn-secondary">Delete</a>
             </div>

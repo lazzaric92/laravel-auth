@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -34,14 +35,8 @@ class ProjectController extends Controller
         $data = $request->validated();
 
         $newProject = new Project();
-        $newProject->title = $data['title'];
-        $newProject->devs = $data['devs'];
-        $newProject->description = $data['description'];
-        $newProject->languages = $data['languages'];
-        $newProject->date = $data['date'];
-        $newProject->github = $data['github'];
-        $newProject->image = $data['image'];
-        $newProject->save();
+        $newProject->author = Auth::user('name');
+        $newProject = Project::create($data);
 
         return redirect()->route('admin.projects.show', $newProject);
     }
