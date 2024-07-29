@@ -6,8 +6,8 @@
 @endsection
 
 {{-- <-- Form --}}
-@section('form-action', )
-    {{ route('admin.projects.update', $project)}}
+@section('form-action')
+    {{route('admin.projects.update', $project)}}
 @endsection
 
 @section('form-method')

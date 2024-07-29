@@ -16,16 +16,16 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::orderBy('date', 'desc')->get();
+        $projects = Project::orderBy('date', 'desc')->paginate(15);
         return view('admin.projects.index', compact('projects'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Project $project)
     {
-        return view('admin.projects.create');
+        return view('admin.projects.create', compact('project'));
     }
 
     /**

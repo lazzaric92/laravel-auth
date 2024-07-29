@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <table class="table table-hover table-striped text-center">
+        <table class="table table-hover table-striped text-center mb-4">
             <thead class="table-primary">
                 <tr>
                     <th scope="col">#</th>
@@ -48,6 +48,8 @@
                 @endforeach
             </tbody>
         </table>
+
+        {{ $projects->links() }}
     </div>
 @endsection
 
