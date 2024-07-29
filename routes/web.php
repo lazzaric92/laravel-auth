@@ -24,7 +24,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware('auth')->name('admin.')->prefix('/admin')->group(function(){
-    Route::resource('/projects', AdminProjectController::class);
+Route::middleware('auth')->name('admin.')->prefix('/admin/')->group(function(){
+    Route::get('projects/deleted', [AdminProjectController::class, 'softDeleted'])->name('projects.deleted');
+    Route::resource('projects', AdminProjectController::class);
     }
 );

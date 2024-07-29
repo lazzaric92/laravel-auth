@@ -76,4 +76,13 @@ class ProjectController extends Controller
         $project->delete();
         return redirect()->route('admin.projects.index')->with('message', $project['title'] . 'has been deleted');
     }
+
+    /**
+     * Display the list of soft deleted resources
+     */
+    public function softDeleted()
+    {
+        $projects = Project::onlyTrashed()->paginate(15);
+        return view('admin.projects.softDeleted', compact('projects'));
+    }
 }

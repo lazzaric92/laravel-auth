@@ -40,7 +40,7 @@
                             <a href=" {{route('admin.projects.create')}} " class="nav-link">Add a project</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a href="" class="nav-link">Bin</a>
+                            <a href="{{route('admin.projects.deleted')}}" class="nav-link">Bin</a>
                         </li>
                     </ul>
 
